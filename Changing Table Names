@@ -1,0 +1,80 @@
+### Original Data Columns
+- Players
+- G
+- #
+- SP
+- K
+- E
+- TA
+- K%
+- A
+- SA
+- SE
+- RE
+- D
+- SB
+- BA
+- BE
+- BHE
+
+### Added Data Columns
+- Victory
+- Year
+- Position
+- Points Scored
+- Total Errors
+- Defense Rating
+- Player Impact Score
+
+### Volleyball Players
+Blake Huberty
+Fawaz Ilukoma
+Erik Perez
+Stanley Guziec
+Phurin Kosoumpiinun
+Sam Akouri
+Michael Fenley
+Oliver Godziszewski
+Bo Parker
+Kevin Jones
+Michael Lipowski
+John Valencia
+Ashton Baula
+Ryan Impey
+Ben Hoover
+Justus Barbel
+Osiel Cruz
+Nathan Perez
+Vincent Arias
+Sam Monlitor
+Nathan Kamaris
+Dante Vizconde
+Jaylen Edwards
+
+
+ALTER TABLE volleyball_stats
+RENAME COLUMN G TO Game,
+RENAME COLUMN `#` TO `Jersey #`,
+RENAME COLUMN SP TO `Sets Played`,
+RENAME COLUMN K TO Kills,
+RENAME COLUMN E TO `Hitting Error`,
+RENAME COLUMN TA TO `Total Attempts`,
+RENAME COLUMN `K%` TO `Offensive Efficiency`,
+RENAME COLUMN A TO Assists,
+RENAME COLUMN SA TO `Service Ace`,
+RENAME COLUMN SE TO `Service Error`,
+RENAME COLUMN RE TO `Receive Error`,
+RENAME COLUMN D TO Digs,
+RENAME COLUMN SB TO `Single Block`,
+RENAME COLUMN BA TO `Block Assist`,
+RENAME COLUMN BE TO `Block Error`,
+RENAME COLUMN BHE TO `Ball Handling Error`;
+
+ALTER TABLE volleyball_stats
+ADD COLUMN Victory BOOLEAN,
+ADD COLUMN Year INT,
+ADD COLUMN Position VARCHAR(50),
+ADD COLUMN `Points Scored` DECIMAL(10, 2),
+ADD COLUMN `Total Errors` INT,
+ADD COLUMN `Defense Rating` DECIMAL(10, 2),
+ADD COLUMN `Player Impact Score` DECIMAL(10, 2);
