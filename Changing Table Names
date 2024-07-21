@@ -17,6 +17,7 @@
 - BE
 - BHE
 
+
 ### Added Data Columns
 - Victory
 - Year
@@ -25,6 +26,9 @@
 - Total Errors
 - Defense Rating
 - Player Impact Score
+- Total Attempts
+- Value
+
 
 ### Volleyball Players
 Blake Huberty
@@ -51,14 +55,14 @@ Nathan Kamaris
 Dante Vizconde
 Jaylen Edwards
 
-
+### Column Name Changing
 ALTER TABLE volleyball_stats
 RENAME COLUMN G TO Game,
 RENAME COLUMN `#` TO `Jersey #`,
 RENAME COLUMN SP TO `Sets Played`,
 RENAME COLUMN K TO Kills,
 RENAME COLUMN E TO `Hitting Error`,
-RENAME COLUMN TA TO `Total Attempts`,
+RENAME COLUMN TA TO `Hitting Attempts`,
 RENAME COLUMN `K%` TO `Offensive Efficiency`,
 RENAME COLUMN A TO Assists,
 RENAME COLUMN SA TO `Service Ace`,
@@ -70,6 +74,7 @@ RENAME COLUMN BA TO `Block Assist`,
 RENAME COLUMN BE TO `Block Error`,
 RENAME COLUMN BHE TO `Ball Handling Error`;
 
+### Column Adding
 ALTER TABLE volleyball_stats
 ADD COLUMN Victory BOOLEAN,
 ADD COLUMN Year INT,
@@ -78,3 +83,5 @@ ADD COLUMN `Points Scored` DECIMAL(10, 2),
 ADD COLUMN `Total Errors` INT,
 ADD COLUMN `Defense Rating` DECIMAL(10, 2),
 ADD COLUMN `Player Impact Score` DECIMAL(10, 2);
+ADD COLUMN `Total Attempts` INT,
+ADD COLUMN `Value` DECIMAL(10, 2);
