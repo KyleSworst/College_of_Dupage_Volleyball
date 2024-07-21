@@ -1,0 +1,73 @@
+## Calculations and Formulas
+
+### Points Scored
+Formula: `=Kills + Service Ace + (Block Assist * 0.5)`
+
+### Total Errors
+Formula: `=Hitting Error + Error + Receive Error`
+
+### Defense Rating
+Formula: `=Digs + Single Block + (Block Assist * 0.5)`
+
+### Player Impact Score
+Formula: `=(Points Scored - Total Errors) + Defense Rating + (Assists * 0.5)`
+
+### Total Attempts
+Formula: `=(Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error)`
+
+### Value
+Formula: `=(Total Attempts` = `Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error)`
+
+## Step-by-Step Process
+
+1. **Points Scored:**
+    - Add a new column named "Points Scored".
+    - Use the formula: `=Kills + Service Ace + (Block Assist * 0.5)`
+UPDATE volleyball_stats
+SET 
+    `Total Errors` = `Hitting Error` + `Service Error` + `Receive Error`,
+
+2. **Total Errors:**
+    - Add a new column named "Total Errors".
+    - Use the formula: `=Hitting Error + Error + Receive Error`
+UPDATE volleyball_stats
+SET 
+    `Total Errors` = `Hitting Error` + `Service Error` + `Receive Error`,
+
+3. **Defense Rating:**
+    - Add a new column named "Defense Rating".
+    - Use the formula: `=Digs + Single Block + (Block Assist * 0.5)`
+UPDATE volleyball_stats
+SET 
+    `Defense Rating` = Digs + `Single Block` + (`Block Assist` * 0.5),
+
+4. **Player Impact Score:**
+    - Add a new column named "Player Impact Score".
+    - Use the formula: `=(Points Scored - Total Errors) + Defense Rating + (Assists * 0.5)`
+UPDATE volleyball_stats
+SET 
+    `Player Impact Score` = (Kills + `Service Ace` + (`Block Assist` * 0.5) - (`Hitting Error` + `Service Error` + `Receive Error`)) + (Digs + `Single Block` + (`Block Assist` * 0.5)) + (Assists * 0.5);
+
+5. **Total Attempts:**
+    - Add a new column named "Total Attempts".
+    - Use the Formula: `=(Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error)`
+UPDATE volleyball_stats
+SET 
+`Total Attempts` = `Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error`;
+
+6. **Value:**
+    - Add a new column named "Value".
+    - Use the Formula: `=(Total Attempts` = `Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error)`
+UPDATE volleyball_stats
+SET 
+`Total Attempts` = `Hitting Attempts` + `Assists` + `Service Ace` + `Error` + `Receive Error` + `Digs` + `Single Block` + `Block Assist` + `Block Error` + `Ball Handling Error`;
+UPDATE volleyball_stats
+SET `Value` = CASE
+    WHEN `Total Attempts` = 0 THEN 0
+    ELSE (`Player Impact Score` / `Total Attempts`) * 10
+END;
+
+7. **Formatting and Cleanup:**
+    - Ensure all cells are formatted correctly.
+    - Clear positions for "Game Total" and "Season Total".
+
